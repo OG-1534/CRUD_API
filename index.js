@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const router = require(".routes/productRoute");
+const router = require("./routes/productRoutes");
 
 //Middleware to parse JSON data
 app.use(express.json());
