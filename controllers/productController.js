@@ -11,4 +11,14 @@ const createProduct = async(req,res) => {
 	}
 };
 
-module.exports = createProduct;
+// READ PRODUCT
+const returnProducts = async(req,res) => {
+	 try {
+                const result = await ProductModel.find();
+                res.status(200).json(result);
+        }       catch(err) {
+                res.status(500).json(err);
+        }
+};
+
+module.exports = { createProduct, returnProducts };
