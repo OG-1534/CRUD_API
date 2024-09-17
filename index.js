@@ -3,14 +3,14 @@ const express = require("express");
 const app = express();
 
 const PORT = process.env.PORT;
+const db = process.env.DBURI;
 
-// SIMPLE ROUTE
-
-app.get("/", (req,res) => {
-	res.send("Server is running");
+mongoose.connect(db).then(() => {
+	console.log("Connected to DB");
+	app.listen(PORT, () => {
+		console.log('Server is running on ${PORT}');
+	});
 });
-
-// START SERVER
-app.listen(PORT, () => {
-	console.log('Server is running on ${PORT}');
+.catch((err) => {
+	console.log(err);
 });
