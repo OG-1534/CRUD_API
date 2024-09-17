@@ -1,6 +1,10 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
+const mongoose = require("mongoose");
+
+//Middleware to parse JSON data
+app.use(express.json());
 
 const PORT = process.env.PORT;
 const db = process.env.DBURI;
